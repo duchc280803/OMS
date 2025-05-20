@@ -1,6 +1,7 @@
 export default defineNuxtRouteMiddleware((to) => {
-    console.log(to.path)
-    if (to.path === '/') {
-        return navigateTo('/statistical', { redirectCode: 200 });
-    }
-});
+  if (process.server) return  // tránh lỗi SSR
+  const token = localStorage.getItem('auth_token')
+  if (!token && to.path !== '/login') {
+    return navigateTo('/login')
+  }
+})

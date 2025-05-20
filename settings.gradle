@@ -1,1 +1,10 @@
 rootProject.name = 'OMS'
+
+include('infra')
+include('order-service')
+include('inventory-service')
+include('payment-service')
+include('product-service')
+include('notification-service')
+include('gateway-service')
+include('auth-service')
